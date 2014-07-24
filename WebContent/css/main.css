@@ -1,0 +1,101 @@
+@CHARSET "ISO-8859-1";
+
+#page_header{
+	padding: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background-color: #F3E8C6;
+	width: 1349px;
+	height: 150px;
+}
+.main_container{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	line-height: 1.4;
+	background-color: #F3E8C6;
+	width: 1349px;
+	height:1015px;
+}
+.order_container{
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: #fff;
+    margin: -16px auto 0 auto;
+    width: 964px;
+    height:1015px;
+    display: block;
+}
+
+div.logo{
+	 display: block;
+	margin-left: 548px;
+	overflow: hidden;
+	position: absolute;
+	text-indent: -100%;
+	top: 20px;
+	content: url("/sodaSoftware/img/logo.jpg");
+}
+.clearFloat {
+	clear:both;
+}
+
+.col-left
+{
+	float: left;
+	clear: left;
+	width: 205px;
+	border-left: none;
+	padding-bottom: 30px;
+	padding-top: 0px;
+	border-right: 1px solid #ccc;
+	margin: 25px 0;
+}
+.col-left h2
+{
+	padding-left: 22px;
+	margin-bottom: 0px;
+}
+
+.col-left ul li
+{
+	padding: 0px;
+	height: auto;
+	margin-bottom: 5px;
+	color: #8b5822;
+}
+
+.col-left ul{
+	
+	list-style: none;
+}
+
+.navigation_title{
+	color: #4c3327;
+	font-family: 'Sina-Medium';
+	line-height: 1.5;
+	color: #4c3327
+}
+
+/*col right*/
+.col-right{
+	float: right;
+	margin: 17px 0px 0 0;
+	width: 720px;
+}
+
+.content .colRightLeft
+{
+	float: left;
+	padding-right: 10px;
+	width: 510px;
+}
+
+
+
