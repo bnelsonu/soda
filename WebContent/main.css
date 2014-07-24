@@ -1,0 +1,18 @@
+@CHARSET "ISO-8859-1";
+
+.main_container{
+	
+	background-color: #4c3327;
+	width:200px;
+    height:200px;
+    position:relative;
+    border:1px solid black;
+}
+.order_container{
+	
+	
+    position:absolute;
+    width:150px;
+    height:150px;
+    background: white;
+}
