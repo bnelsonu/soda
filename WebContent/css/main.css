@@ -1,4 +1,17 @@
-@CHARSET "ISO-8859-1";
+html{
+	
+	font-size: 100%;
+	height: 100%;
+		
+}
+
+body {
+    color: #4c3327;
+    font-family: 'DINWeb',sans-serif;
+    height: 100%;
+    line-height: 1.4;
+    min-width: 768px;
+}
 
 #page_header{
 	padding: 0;
@@ -34,13 +47,13 @@
 }
 
 div.logo{
-	 display: block;
+	display: block;
 	margin-left: 548px;
-	overflow: hidden;
 	position: absolute;
-	text-indent: -100%;
+	height:140px;
+	width:217px;
 	top: 20px;
-	content: url("/sodaSoftware/img/logo.jpg");
+	background-image: url("/sodaSoftware/img/logo.jpg");
 }
 .clearFloat {
 	clear:both;
@@ -59,7 +72,7 @@ div.logo{
 }
 .col-left h2
 {
-	padding-left: 22px;
+	padding-left: 52px;
 	margin-bottom: 0px;
 }
 
@@ -68,23 +81,27 @@ div.logo{
 	padding: 0px;
 	height: auto;
 	margin-bottom: 5px;
-	color: #8b5822;
+	color: #d86425;
 }
 
 .col-left ul{
 	
 	list-style: none;
 }
+.col-left li{
+	font-family: 'DINWeb',sans-serif;
+}
+
 
 .navigation_title{
-	color: #4c3327;
 	font-family: 'Sina-Medium';
 	line-height: 1.5;
-	color: #4c3327
+	color: #d6670d
 }
 
 /*col right*/
-.col-right{
+.col-right
+{
 	float: right;
 	margin: 17px 0px 0 0;
 	width: 720px;
@@ -97,5 +114,235 @@ div.logo{
 	width: 510px;
 }
 
+#productContent 
+{
+	padding-top: 1px;
+}
+.wrapper-product-uber 
+{
+	width: 100%;
+}
+.wrapper-product-category 
+{
+	margin-bottom: 0px;
+}
 
+.wrapper-product-category .title {
+	font-family: 'Sina-Regular';
+	height: 35px;
+	line-height: 35px;
+	margin: 0 0 5px;
+	overflow: hidden;
+	color: #4c3327;
+	padding: 20px 0 0 0;
+	font-size: 24px;
+}
+
+.wrapper-product-category .title span {
+	display: block;
+	font-weight: normal;
+	margin: 0;
+}
+
+.wrapper-product {
+	margin-top: 10px;
+}
+
+.itemBox 
+{
+	box-shadow: 0px 0px 10px rgba(153, 102, 51, 0.3);
+	float: left;
+	margin: 0 9px 20px 0;
+	min-height: 5px;
+	padding: 5px 5px 80px 5px;
+	position: relative;
+	width: 236px;	
+}
+
+.productName {
+	background: #fff;
+	color: #4E3227;
+	float: left;
+	font-family: 'Sina-Regular';
+	font-size: 18px;
+	position: relative;
+	overflow: hidden;
+	text-align: left;
+	margin: -5px 0 0 -5px;
+	padding: 5px 0 5px 5px;
+	width: 151px;
+	z-index: 1;
+}
+
+.itemPriceCalories {
+	float: right;
+	position: absolute;
+	right: 0;
+	top: 0px;
+	font-size: 1px;
+	min-height: 43px;
+	padding: 6px 5px 0 0;
+	z-index: 1;
+}
+
+.productPrice {
+	font-size: 13px;
+	color: #4e3227;
+	text-align: right;
+	width: 100px;
+}
+
+.product-button-div{
+	float: right;
+}
+
+.product-button{
+
+	background:url("/sodaSoftware/img/orderBoton.jpg");
+	height:25px;
+	width: 71px;
+	
+	/*position: relative;*/
+}
+
+
+.content .colRightLeft {
+float: left;
+padding-right: 10px;
+width: 510px;
+}
+
+/*Order*/
+#orderDetailsAndSummary {
+	border-left: 1px solid #dad3b8;
+	/*margin: -190px 0;*/
+	width: 196px;
+}
+
+.colRightRight {
+	float: right;
+	margin-right: 10px;
+	margin-top:-190px;
+	width: 190px;
+}
+
+
+.order head h3 a {
+background: transparent scroll no-repeat right 9px;
+display: block;
+}
+
+a
+{
+color: #d6670d;
+text-decoration: none;
+}
+
+
+
+.content .colRightRight .orderPanel .orderContent {
+padding: 0px;
+overflow: hidden;
+}
+
+
+.order.details, .total.details {
+background: transparent;
+color: #4E3227;
+font-size: 14px;
+font-weight: normal;
+height: auto;
+padding-left: 10px;
+}
+
+.details {
+padding: 5px;
+overflow: auto;
+}
+
+.floatl {
+float: left;
+font-weight: bold;
+}
+
+.order.details p.orderDetailsBlock {
+margin-bottom: 0px;
+}
+
+.order.details p {
+font-size: 14px;
+text-align: left;
+}
+
+.orderHead{
+	margin:10px 10px 10px 10px;
+}
+
+.items-meta {
+overflow: hidden;
+}
+
+.productItemName {
+font-weight: bold;
+display: inline;
+float: left;
+font-size:12px;
+width: 160px;
+margin-left: 10px;
+}
+
+.productItemPrice {
+display: inline;
+float: right;
+font-size:12px;
+}
+
+.order.details, .total.details {
+background: transparent;
+color: #4E3227;
+font-size: 14px;
+font-weight: normal;
+height: auto;
+padding-left: 10px;
+}
+
+.details {
+padding: 5px;
+overflow: auto;
+}
+
+.floatr {
+display: inline;
+float: right;
+font-size: 12px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.orderHead, .wrapper-product-category .title {
+color: #996633;
+font-sie: 22px;
+margin: 10px 0px 5px 0px;
+overflow: hidden;
+}*/
 
