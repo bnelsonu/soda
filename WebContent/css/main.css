@@ -220,7 +220,6 @@ width: 510px;
 /*Order*/
 #orderDetailsAndSummary {
 	border-left: 1px solid #dad3b8;
-	/*margin: -190px 0;*/
 	width: 196px;
 }
 
@@ -250,6 +249,11 @@ padding: 0px;
 overflow: hidden;
 }
 
+.summary.details {
+color: #4E3227;
+font-size: 12px;
+padding: 10px;
+}
 
 .order.details, .total.details {
 background: transparent;
@@ -296,10 +300,20 @@ width: 160px;
 margin-left: 10px;
 }
 
+.delete {
+cursor: pointer;
+float: left;
+height: 12px;
+margin-right: 3px;
+margin-top: 2px;
+width: 12px;
+}
+
 .productItemPrice {
 display: inline;
 float: right;
 font-size:12px;
+margin-right: 14px;
 }
 
 .order.details, .total.details {
@@ -319,11 +333,26 @@ overflow: auto;
 .floatr {
 display: inline;
 float: right;
-font-size: 12px;
-
+font-size: 17px;
+font-weight: bold;
 }
 
+.total.details .btn-2, .content .btn-2 {
+display: block;
+font: 13px/28px 'DINWeb', sans-serif;
+height: 24px;
+padding: 0;
+text-align: center;
+width: 71px;
+}
 
+.floatrIv{
+	display: inline;
+	float: right;
+	font-size: 17px;
+	font-weight: bold;
+	margin-right: -35px;
+}
 
 
 
