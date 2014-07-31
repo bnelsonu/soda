@@ -2,7 +2,6 @@ html{
 	
 	font-size: 100%;
 	height: 100%;
-		
 }
 
 body {
@@ -340,10 +339,11 @@ font-weight: bold;
 .total.details .btn-2, .content .btn-2 {
 display: block;
 font: 13px/28px 'DINWeb', sans-serif;
-height: 24px;
+height: 28px;
 padding: 0;
 text-align: center;
 width: 71px;
+background:url("/sodaSoftware/img/orderBoton.jpg");
 }
 
 .floatrIv{
@@ -355,22 +355,16 @@ width: 71px;
 }
 
 
+.btn-2{
+color:white;	
+}
+.product-button{
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	background:url("/sodaSoftware/img/orderBoton.jpg");
+	height:25px;
+	width: 71px;
+	color:#fff;
+}
 
 /*
 .orderHead, .wrapper-product-category .title {
