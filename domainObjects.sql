@@ -75,6 +75,7 @@ CREATE TABLE categoria
 WITH (
   OIDS=FALSE
 );
+
 ALTER TABLE categoria
   OWNER TO postgres;
 
