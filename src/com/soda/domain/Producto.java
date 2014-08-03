@@ -20,6 +20,16 @@ public class Producto {
 	@Column(name = "nombreProducto")
 	private String nombreProducto;
 	
+	@Column(name = "precioProducto")
+	private String precioProducto;
+	
+	@Column(name="descripcionProducto")
+	private String descripcionProducto;
+	
+	@ManyToOne
+	@JoinColumn(name="idSubCategoria")
+	private SubCategoria subCategoria;
+	
 	@ManyToOne
 	@JoinColumn(name="idCategoria")
 	private Categoria categoria;
@@ -46,5 +56,29 @@ public class Producto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getPrecioProducto() {
+		return precioProducto;
+	}
+
+	public void setPrecioProducto(String precioProducto) {
+		this.precioProducto = precioProducto;
+	}
+
+	public String getDescripcionProducto() {
+		return descripcionProducto;
+	}
+
+	public void setDescripcionProducto(String descripcionProducto) {
+		this.descripcionProducto = descripcionProducto;
+	}
+
+	public SubCategoria getSubCategoria() {
+		return subCategoria;
+	}
+
+	public void setSubCategoria(SubCategoria subCategoria) {
+		this.subCategoria = subCategoria;
 	}
 }

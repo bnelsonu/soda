@@ -20,6 +20,6 @@
 	    <mapping class="com.soda.domain.Producto"/>
 	    <mapping class="com.soda.domain.Orden"/>
 	    <mapping class="com.soda.domain.Categoria"/>
-	         
+	     <mapping class="com.soda.domain.SubCategoria"/>     
     </session-factory>
 </hibernate-configuration>
