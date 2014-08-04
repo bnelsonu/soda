@@ -17,11 +17,6 @@ public class SodaDomainTest {
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-
-		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Producto.class);
-	    List <Producto> productos= criteria.list();
-	    
-	    session.getTransaction().commit();
+		
 	}
 }

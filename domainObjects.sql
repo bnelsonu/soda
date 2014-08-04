@@ -352,10 +352,6 @@ insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descr
 
 --Ordenes xtra
 
-insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('84','Crepas',12,1000,'',null);
-
-insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('85','Frutas',12,1000,'',null);
-
 insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('86','Torta 1/4 Libra',13,900,'',null);
 
 insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('87','Torta Original',13,600,'',null);

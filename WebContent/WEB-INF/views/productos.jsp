@@ -1,0 +1,134 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/sodaSoftware/css/main.css">
+<meta charset="ISO-8859-1">
+<title>Marmota's Place</title>
+</head>
+<body>
+<header id="page_header">
+<div class="logo"></div>
+</header>
+	<div class="main_container">
+		<div class="order_container">
+			<div class="clearFloat"></div>
+			<div class="col-left">
+				<h2 class="navigation_title">Men&uacute;</h2>
+				<div id="menu-admin">
+					<ul class="menu_items">
+						<c:forEach items="${categorias}"  var="categoria">
+							<li><a href="<spring:url value="/main/allProductos/${categoria.idCategoria}"/>">${categoria.nombreCategoria}</a></li>
+						</c:forEach>
+					</ul>
+				</div>
+			</div>
+			<div class="col-right">
+				<div id="menu_ProductContent" class="colRightLeft menuProductContent">
+					<div id="menu_ProductContent">
+						<div id="productContent">
+							<div id="wrapper-product-uber">
+								<div class="wrapper-product-category">
+									<div id="hamburguesas" class="title" style="clear: both;">
+										<span>${productosByCategoria[0].categoria.nombreCategoria}</span>
+									</div>
+									<div class="wrapper-product">
+									 <c:forEach items="${productosByCategoria}"  var="producto">
+										<div class="itemBox">
+											<div class="information-container">
+												<div class="productName">
+													${producto.nombreProducto}
+												</div>
+												<div class="itemPriceCalories">
+													<div style="float:right; text-align: right; width: 100px">
+														<div>
+															<span class="productPrice">${producto.precioProducto}</span>
+														</div>
+													</div>
+												</div>
+												<div class="product-button-div">
+													<span><input type="button" class="product-button" value="Ordenar"></span>
+												
+												</div>
+											</div>
+												<div style="clear:both;"></div>
+										</div><!--q se repita  -->
+									 </c:forEach>
+	
+									</div>
+								</div>
+							</div>
+						 </div>
+					</div>
+				</div>
+				<div id="orderDetailsAndSummary" class="colRightRight">
+					<div class="orderPanel">
+						<div class="orderHead">
+							<h3>
+								<a href="#">Detalle Orden</a>
+							</h3>
+						</div>
+						<div class="orderContent" id="fav_orderDetail" style="display: block;">
+							<div class="order details">
+								<div class="floatl">
+									<p class="orderDetailsBlock">Fecha: &nbsp;</p>
+								</div>
+								<p class="orderDetailsBlock">
+									07/3/2014
+								</p>
+								<div class="floatl">
+									<p class="orderDetailsBlock">Cajero: &nbsp;</p>
+								</div>
+								<p class="orderDetailsBlock">
+									Carlos Hernandez
+								</p>
+								
+							</div>
+						</div>
+						<div class="orderHead">
+							<h3>
+								<a href="#">Resumen Orden</a>
+							</h3>
+						</div>
+						<div class="orderContent" id="fav_orderSummary">
+							<div class="summary details">
+								<div class="delete">
+									<img src="/sodaSoftware/img/remove.png" alt="Delete">
+								</div>
+								<div class=" items-meta">
+									<div class="productItemName">Hawaiiana (con piña rostizada)</div>
+									<div class="productItemPrice">1900</div>
+								</div>
+								<div class="delete">
+									<img src="/sodaSoftware/img/remove.png" alt="Delete">
+								</div>
+								<div class=" items-meta">
+									<div class="productItemName">Spicy (con chile jalapeño o chipotle)</div>
+									<div class="productItemPrice">1650</div>
+								</div>
+								<div class="total details">
+									<div class="item">
+										<strong>Subtotal</strong>
+										<span class="floatr">3550</span>
+									</div>
+									<div class="item">
+										<strong>+ IV</strong>
+										<span class="floatrIv">4011</span>
+									</div>
+									<hr>
+									<div id="divFinalizar" style="float:right; padding-top: 20px;">
+										<input type="submit" value="Finalizar" class="btn-2">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!--fin orderPanel-->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

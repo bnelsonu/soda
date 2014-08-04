@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+ xmlns:context="http://www.springframework.org/schema/context"  
+ xmlns:p="http://www.springframework.org/schema/p"   
+ xmlns:tx="http://www.springframework.org/schema/tx"  
+ xmlns:mvc="http://www.springframework.org/schema/mvc"  
+ xsi:schemaLocation="http://www.springframework.org/schema/beans   
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+      http://www.springframework.org/schema/context  
+      http://www.springframework.org/schema/context/spring-context-4.0.xsd  
+      http://www.springframework.org/schema/tx   
+   http://www.springframework.org/schema/tx/spring-tx-4.0.xsd  
+   http://www.springframework.org/schema/mvc   
+   http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">  
+
+ 
+ 	<context:component-scan base-package="com.soda"></context:component-scan>
+ 	 <mvc:annotation-driven/>
+	<mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/img/**" location="/img/"/>
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+ 	   <property name="prefix" value="/WEB-INF/views/"/>
+ 	   <property name="suffix" value=".jsp"/>
+ 	</bean>
+ 	 <!-- Hibernate configuration -->
+    
+ <tx:annotation-driven transaction-manager="transactionManager" />  
+      
+    <bean  id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"  p:sessionFactory-ref="sessionFactory" />  
+   
+ <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">  
+     <property name="dataSource" ref="dataSource"/>  
+     <property name="hibernateProperties">  
+       <props>          
+             <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>            
+             <prop key="hibernate.show_sql">true</prop>  
+             <prop key="hibernate.hbm2ddl.auto">update</prop>   
+        </props>  
+     </property>  
+  <property name="annotatedClasses">  
+   <list>  
+   	   <value>com.soda.domain.Cajero</value>
+   	   <value>com.soda.domain.Categoria</value>
+   	   <value>com.soda.domain.Orden</value>
+   	   <value>com.soda.domain.Producto</value>
+   	   <value>com.soda.domain.SubCategoria</value>
+   </list>  
+  </property>  
+ </bean>  
+ <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"  
+   p:driverClassName="org.postgresql.Driver"  
+   p:url="jdbc:postgresql://localhost:5432/soda"  
+   p:username="postgres"  
+   p:password="admin"/>
+ 	
+ </beans>
