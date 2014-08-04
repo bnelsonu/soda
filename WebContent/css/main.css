@@ -49,10 +49,10 @@ div.logo{
 	display: block;
 	margin-left: 548px;
 	position: absolute;
-	height:140px;
+	height:125px;
 	width:217px;
 	top: 20px;
-	background-image: url("/sodaSoftware/img/logo.jpg");
+	background-image: url("/sodaSoftware/img/logo.png");
 }
 .clearFloat {
 	clear:both;
