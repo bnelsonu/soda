@@ -10,6 +10,7 @@
         <property name="connection.url">jdbc:postgresql://localhost:5432/soda</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">admin</property>
+      
          
         <property name="connection.pool_size">1</property>
         <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>

@@ -350,31 +350,44 @@ insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descr
 
 insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('85','Frutas',12,1000,'',null);
 
+--Ordenes xtra
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('84','Crepas',12,1000,'',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('85','Frutas',12,1000,'',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('86','Torta 1/4 Libra',13,900,'',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('87','Torta Original',13,600,'',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('88','Tortilla de Taco',13,600,'',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('89','Orden de',13, 950, '(Res, Pollo, Pescao o Cerdo)',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('90','Queso Mozzarella',13, 350, '(con piña rostisada)',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('91','Queso Americano',13, 350, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('92','Croqueta de Queso',13, 350, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('93','Orden de Papa pequeña',13, 400, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('94','Orden de Ensalada',13, 400, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('95','Extra Pepinillo',13, 200, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('96','Extra Cebolla',13, 150, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('97','Extra jalapeño',13, 150, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('98','Extra aderezo',13, 100, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('99','Extra piña',13, 50, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('100','Salcicha pequeña',13, 350, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('101','Salcicha gigante',13, 350, '',null);
 
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('102','Salcicha pequeña',13, 700, '',null);
 
-
-
-  
-  
-  
-  
-
-
+insert into producto (idproducto,nombreproducto,idcategoria,precioProducto,descripcionProducto,idsubcategoria) values ('103','Extra Tocineta',13, 400, '',null);
