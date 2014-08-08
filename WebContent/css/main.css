@@ -101,16 +101,16 @@ div.logo{
 /*col right*/
 .col-right
 {
-	float: right;
+	float: left;
 	margin: 17px 0px 0 0;
 	width: 720px;
+	padding-left: 20px;
 }
 
-.content .colRightLeft
+.colRightLeft
 {
 	float: left;
-	padding-right: 10px;
-	width: 510px;
+	width: 520px;
 }
 
 #productContent 
@@ -208,8 +208,6 @@ div.logo{
 	width: 71px;
 	color:#fff;
 }
-
-
 .content .colRightLeft {
 float: left;
 padding-right: 10px;
@@ -224,9 +222,6 @@ width: 510px;
 
 .colRightRight {
 	float: right;
-	margin-right: 10px;
-	margin-top:-190px;
-	width: 190px;
 }
 
 
@@ -240,8 +235,6 @@ a
 color: #d6670d;
 text-decoration: none;
 }
-
-
 
 .content .colRightRight .orderPanel .orderContent {
 padding: 0px;
