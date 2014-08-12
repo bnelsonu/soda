@@ -95,28 +95,17 @@
 						</div>
 						<div class="orderContent" id="fav_orderSummary">
 							<div class="summary details">
-								<div class="delete">
+								<div class="delete hide">
 									<img src="/sodaSoftware/img/remove.png" alt="Delete">
 								</div>
-								<div class=" items-meta">
-									<div class="productItemName">Hawaiiana (con piña rostizada)</div>
-									<div class="productItemPrice">1900</div>
-								</div>
-								<div class="delete">
-									<img src="/sodaSoftware/img/remove.png" alt="Delete">
-								</div>
-								<div class=" items-meta">
-									<div class="productItemName">Spicy (con chile jalapeño o chipotle)</div>
-									<div class="productItemPrice">1650</div>
+								<div class=" items-meta hide">
+									<div class="productItemName"></div><!--Hawaiiana (con piña rostizada)-->
+									<div class="productItemPrice"></div><!-- 1900 -->
 								</div>
 								<div class="total details">
 									<div class="item">
 										<strong>Subtotal</strong>
 										<span class="floatr">3550</span>
-									</div>
-									<div class="item">
-										<strong>+ IV</strong>
-										<span class="floatrIv">4011</span>
 									</div>
 									<hr>
 									<div id="divFinalizar" style="float:right; padding-top: 20px;">

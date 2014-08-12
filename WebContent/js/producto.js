@@ -28,10 +28,23 @@ Producto.Loader = function(){
 					var currentProductoHtml = $(getCurrentNombreProducto).html();
 					var currentPrecioHtml = $(getCurrentPrecioProducto).html();
 					
+					createSummaryHtml(currentProductoHtml,currentPrecioHtml);
+					
 					alert(currentProductoHtml);
 					alert(currentPrecioHtml);
 					
 				});
 	};
 	
+	 var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto){
+		
+		summaryDetails= $(".summary .details");
+		var deleteClass = $(".delete"); //obtenemos el div delete que contiene el boton delete
+	    $(".items-meta").find(".productItemName").html(getCurrentNombreProducto);
+	    $(".items-meta").find(".productItemPrice").html(getCurrentPrecioProducto);
+	    
+	    
+	    summaryDetails.append(deleteClass);
+		
+	};		
 };
