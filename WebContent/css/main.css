@@ -158,7 +158,7 @@ div.logo{
 	width: 236px;	
 }
 
-.productName {
+.productName p{
 	background: #fff;
 	color: #4E3227;
 	float: left;

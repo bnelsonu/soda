@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="Producto")
 public class Producto {
@@ -28,10 +30,12 @@ public class Producto {
 	
 	@ManyToOne
 	@JoinColumn(name="idSubCategoria")
+	@JsonIgnore 
 	private SubCategoria subCategoria;
 	
 	@ManyToOne
 	@JoinColumn(name="idCategoria")
+	@JsonIgnore 
 	private Categoria categoria;
 
 	public int getIdProducto() {

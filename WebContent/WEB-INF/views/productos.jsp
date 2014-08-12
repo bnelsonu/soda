@@ -5,6 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/sodaSoftware/js/main.js"> </script>
+<script src="/sodaSoftware/js/producto.js"> </script>
 <link rel="stylesheet" type="text/css" href="/sodaSoftware/css/main.css">
 <meta charset="ISO-8859-1">
 <title>Marmota's Place</title>
@@ -39,8 +42,8 @@
 									 <c:forEach items="${productosByCategoria}"  var="producto">
 										<div class="itemBox">
 											<div class="information-container">
-												<div class="productName">
-													${producto.nombreProducto}
+												<div class="productName" id="divProducto">
+													<p class="nombreProducto">${producto.nombreProducto} ${producto.descripcionProducto}</p>
 												</div>
 												<div class="itemPriceCalories">
 													<div style="float:right; text-align: right; width: 100px">
@@ -50,14 +53,11 @@
 													</div>
 												</div>
 												<div class="product-button-div">
-													<span><input type="button" class="product-button" value="Ordenar"></span>
-												
+													<span><input type="button" class="product-button" value="Ordenar" id="btnOrdenar"></span>
 												</div>
-											</div>
-												<div style="clear:both;"></div>
+											</div>	
 										</div><!--q se repita  -->
 									 </c:forEach>
-	
 									</div>
 								</div>
 							</div>
