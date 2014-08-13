@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="Categoria")
 public class Categoria {
@@ -16,8 +18,9 @@ public class Categoria {
 	private int idCategoria;
 	@Column(name="nombreCategoria")
 	private String nombreCategoria;
-	
+	 
 	@OneToMany(mappedBy="categoria")
+	@JsonIgnore
 	private Collection <Producto> productos = new ArrayList <Producto> ();
 	
 	

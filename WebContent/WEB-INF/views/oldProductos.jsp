@@ -8,7 +8,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/sodaSoftware/js/main.js"> </script>
 <script src="/sodaSoftware/js/producto.js"> </script>
-<script src="/sodaSoftware/js/categoria.js"> </script>
 <link rel="stylesheet" type="text/css" href="/sodaSoftware/css/main.css">
 <meta charset="ISO-8859-1">
 <title>Marmota's Place</title>
@@ -25,8 +24,7 @@
 				<div id="menu-admin">
 					<ul class="menu_items">
 						<c:forEach items="${categorias}"  var="categoria">
-							<%-- <li><a href="<spring:url value="/main/allProductos/${categoria.idCategoria}"/>">${categoria.nombreCategoria}</a></li> --%>
-							<li class="categoryLi"><a class="categoryLink" href="#">${categoria.nombreCategoria}</a></li>
+							<li><a href="<spring:url value="/main/allProductos2/${categoria.idCategoria}"/>">${categoria.nombreCategoria}</a></li>
 						</c:forEach>
 					</ul>
 				</div>

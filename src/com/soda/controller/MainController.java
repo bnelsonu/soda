@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.soda.domain.Producto;
+import com.soda.domain.Categoria;
 import com.soda.service.CategoriaService;
 import com.soda.service.ProductoService;
 
@@ -23,15 +23,44 @@ public class MainController {
 	@Autowired
 	private CategoriaService categoriaService;
 	
-	@RequestMapping(value="/allProductos/{idCategoria}", method = RequestMethod.GET)
+	/*@RequestMapping(value="/allProductos/{idCategoria}", method = RequestMethod.GET)
 	public String getAllProductosByIdCategoria (Model model, @PathVariable("idCategoria")
-	int idCategoria){
-		
+	int idCategoria)
+	{
 		model.addAttribute("categorias",categoriaService.getAllCategorias());
 		model.addAttribute("productosByCategoria",productoService.getAllProductosByCategoria(idCategoria));
 		
 		return "productos";
-	}
+	}*/
 
 	
+	
+	
+	@RequestMapping(value="/allProductos2/{idCategoria}", method = RequestMethod.GET)
+	public String getAllProductosByIdCategoriaTest (Model model, @PathVariable("idCategoria")
+	int idCategoria)
+	{
+		
+		model.addAttribute("categorias",categoriaService.getAllCategorias());
+		model.addAttribute("productosByCategoria",productoService.getAllProductosByCategoria(idCategoria));
+		
+		return "oldProductos";
+	}
+	
+	
+	@RequestMapping(value="/home", method = RequestMethod.GET)
+	public String showProductos ()
+	{
+			
+		return "productos";
+	}
+	
+	@RequestMapping(value = "/categorias", method = RequestMethod.GET)
+	    public @ResponseBody  List<Categoria> returnListInResponse() {
+		
+	    	return categoriaService.getAllCategorias();
+	    }
+	
+	
+
 }
