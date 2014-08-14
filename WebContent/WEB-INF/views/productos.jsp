@@ -24,7 +24,7 @@
 				<h2 class="navigation_title">Men&uacute;</h2>
 				<div id="menu-admin">
 					<ul class="menu_items">
-						<li class="categoryLi"><a class="categoryLink" href="#"></a></li>
+						<!-- <li class="categoryLi"><a class="categoryLink" href="#"></a></li> -->
 					</ul>
 				</div>
 			</div>

@@ -46,7 +46,11 @@ Producto.Loader = function(){
 		
 		$.each(categorias, function(i,categoria)
 		{
-			$(".menu_items").find(".categoryLi").find("categoryLink").html(categoria.nombreCategoria);
+			$menu = $(".menu_items");
+			alert(categoria.getNombreCategoria());
+			
+			$('<li><a id="categoryLink'+i+'"></div></li>').appendTo(".menu_items");
+			$menu.append($("#categoryLink"+i).html(categoria.getNombreCategoria()));
 		});
 		
 	};
