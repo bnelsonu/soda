@@ -11,6 +11,7 @@ Producto.Loader = function(){
 	var totalPrice = 0;
 	elementsCounter = 0;
 	categoriesLink = "/sodaSoftware/main/categorias";
+	var categorias = [];
 	
 	var cache = {
 		btnOrdenar:$(".product-button"),
@@ -21,8 +22,6 @@ Producto.Loader = function(){
 	
 	
 	this.getCategorias = function(){
-	
-		var categorias = [];
 		var categoria;
 		$.ajax({
 			url: categoriesLink,
@@ -42,6 +41,16 @@ Producto.Loader = function(){
 		
 		return categorias;
 	};
+	
+	this.fillMenuCategorias = function (){
+		
+		$.each(categorias, function(i,categoria)
+		{
+			$(".menu_items").find(".categoryLi").find("categoryLink").html(categoria.nombreCategoria);
+		});
+		
+	};
+	
 	
 	this.listen = function(){
 		

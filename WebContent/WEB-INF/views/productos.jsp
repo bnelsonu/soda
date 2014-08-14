@@ -24,10 +24,7 @@
 				<h2 class="navigation_title">Men&uacute;</h2>
 				<div id="menu-admin">
 					<ul class="menu_items">
-						<c:forEach items="${categorias}"  var="categoria">
-							<%-- <li><a href="<spring:url value="/main/allProductos/${categoria.idCategoria}"/>">${categoria.nombreCategoria}</a></li> --%>
-							<li class="categoryLi"><a class="categoryLink" href="#">${categoria.nombreCategoria}</a></li>
-						</c:forEach>
+						<li class="categoryLi"><a class="categoryLink" href="#"></a></li>
 					</ul>
 				</div>
 			</div>
