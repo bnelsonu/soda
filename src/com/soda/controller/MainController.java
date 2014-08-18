@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soda.domain.Categoria;
+import com.soda.domain.Producto;
 import com.soda.service.CategoriaService;
 import com.soda.service.ProductoService;
 
@@ -22,19 +23,6 @@ public class MainController {
 	private ProductoService productoService;
 	@Autowired
 	private CategoriaService categoriaService;
-	
-	/*@RequestMapping(value="/allProductos/{idCategoria}", method = RequestMethod.GET)
-	public String getAllProductosByIdCategoria (Model model, @PathVariable("idCategoria")
-	int idCategoria)
-	{
-		model.addAttribute("categorias",categoriaService.getAllCategorias());
-		model.addAttribute("productosByCategoria",productoService.getAllProductosByCategoria(idCategoria));
-		
-		return "productos";
-	}*/
-
-	
-	
 	
 	@RequestMapping(value="/allProductos2/{idCategoria}", method = RequestMethod.GET)
 	public String getAllProductosByIdCategoriaTest (Model model, @PathVariable("idCategoria")
@@ -61,6 +49,12 @@ public class MainController {
 	    	return categoriaService.getAllCategorias();
 	    }
 	
-	
+	@RequestMapping(value="/allProductos/{idCategoria}", method = RequestMethod.GET)
+	public @ResponseBody  List<Producto> getAllProductosByIdCategoria (Model model, @PathVariable("idCategoria")
+	int idCategoria)
+	{
+		return productoService.getAllProductosByCategoria(idCategoria);
+		
+	}
 
 }

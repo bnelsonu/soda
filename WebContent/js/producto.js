@@ -5,6 +5,30 @@
 //Global object
 var Producto = Producto || {};
 
+Producto.Obj = function(idProductoPar,nombreProductoPar,precioProductoPar,descripcionProductoPar){
+
+	var idProducto = idProductoPar;
+	var nombreProducto = nombreProductoPar;
+	var precioProducto = precioProductoPar;
+    var descripcionProducto	= descripcionProductoPar;
+	
+    this.getIdProducto = function(){
+		return idProducto;
+	};
+	
+	this.getNombreProducto = function(){
+		return nombreProducto;
+	};
+	
+	this.getPrecioProducto = function(){
+		return precioProducto;
+	};
+	
+	this.getDescripcionProducto = function(){
+		return descripcionProducto;
+	};
+	
+};
 
 Producto.Loader = function(){
 	
@@ -12,6 +36,8 @@ Producto.Loader = function(){
 	elementsCounter = 0;
 	categoriesLink = "/sodaSoftware/main/categorias";
 	var categorias = [];
+	var productos = [];
+	productoByCategoriaLink = "/sodaSoftware/main/allProductos/";
 	
 	var cache = {
 		btnOrdenar:$(".product-button"),
@@ -20,6 +46,27 @@ Producto.Loader = function(){
 		linkCategory:$(".categoryLink")
 	};
 	
+	this.getProductosByCategoria = function(idCategoria)
+	{
+		var producto;
+		$.ajax({
+			url: productoByCategoriaLink+idCategoria,
+			type: 'GET',
+			async: false,
+			dataType: 'json'
+		}).done(function(data, textStatus, jqXHR){
+			if(jqXHR.status === 200){
+				if(!$.isEmptyObject(data)){
+					$.each( data, function (index, prod){
+						producto = new Producto.Obj(prod.idProducto,prod.nombreProducto,prod.precioProducto,prod.descripcionProducto);
+						productos.push(producto);
+					});
+				}
+			}    
+		});
+		
+		return productos;
+	};
 	
 	this.getCategorias = function(){
 		var categoria;
@@ -82,21 +129,6 @@ Producto.Loader = function(){
 			 $(items-meta).get(botonClickedIndex).remove();
 		});
 		
-		cache.linkCategory.click(function(e)
-		{					
-			$.ajax({
-				url: autoloopUrl + dealerCode,
-				type: 'GET',
-				async: false,
-				dataType: 'json'
-			}).done(function(data, textStatus, jqXHR){
-				if(jqXHR.status === 200){
-					if(!$.isEmptyObject(data)){
-						
-					}
-				}    
-			});
-	  });
 	};
 	 var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto,index)
 	 { 

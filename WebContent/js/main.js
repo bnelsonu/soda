@@ -12,4 +12,5 @@ function initializeProductos ()
 	productosLoader.listen();
 	productosLoader.getCategorias();
 	productosLoader.fillMenuCategorias();
+	productosLoader.getProductosByCategoria(1);
 };
