@@ -32,8 +32,7 @@ Producto.Obj = function(idProductoPar,nombreProductoPar,precioProductoPar,descri
 
 Producto.Loader = function(){
 	
-	var totalPrice = 0;
-	elementsCounter = 0;
+	
 	categoriesLink = "/sodaSoftware/main/categorias";
 	var categorias = [];
 	var productos = [];
@@ -109,29 +108,31 @@ Producto.UI = function (){
 	
 	var cache = {
 			btnOrdenar:$(".product-button"),
-			linkCategoria:$(".categoryLink")
+			linkCategoria:$(".categoryLink"),
+			totalPrice : 0,
+			elementsCounter : 0
 	};
 	
 	
 	var ordenarProducto = function(e){
 		   
-			elementsCounter++;
+			cache.elementsCounter++;
 			e.preventDefault();
 			
 			botonClickedIndex = $(".product-button").index(this);
-			alert(botonClickedIndex);
 			getCurrentNombreProducto = $(".nombreProducto").get(botonClickedIndex);
 			getCurrentPrecioProducto = $(".productPrice").get(botonClickedIndex);
 			
 			var currentProductoHtml = $(getCurrentNombreProducto).html();
 			var currentPrecioHtml = $(getCurrentPrecioProducto).html();
 			
-			createSummaryHtml(currentProductoHtml,currentPrecioHtml,elementsCounter);
+			createSummaryHtml(currentProductoHtml,currentPrecioHtml,cache.elementsCounter);
 								
 	};
 	
 	var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto,index)
 	 { 
+		alert(index);
 		$('<div class="delete"><img src="/sodaSoftware/img/remove.png" alt="Delete"></div>').appendTo(".product");
 		$('<div class="items-meta" id="items-meta'+index+'">'+'</div>').appendTo(".product");
 		$('<span class="productItemName" id="productItemName'+index+'">'+'</span>').appendTo("#items-meta"+index);
@@ -139,19 +140,25 @@ Producto.UI = function (){
 		$('#items-meta'+index).find("#productItemName"+index).html(getCurrentNombreProducto);
 		$('#items-meta'+index).find("#productItemPrice"+index).html(getCurrentPrecioProducto);
 		
-		totalPrice = totalPrice + parseInt(getCurrentPrecioProducto);
-		$(".floatr").html(totalPrice);
+		cache.totalPrice = cache.totalPrice + parseInt(getCurrentPrecioProducto);
+		$(".floatr").html(cache.totalPrice);
 	};
 		
 	var menuLinks = function (e){
-		alert("este es el link");
+		
 		    e.preventDefault();
-			var link = $(this);
-			getProductosByCategoria(link.attr("href"));
-			
+		    linkIndex = cache.linkCategoria.index(this)+1;
+						
+			productoLoader = new Producto.Loader();
+			$(".itemBox").remove();
+			productoLoader.getProductosByCategoria(linkIndex);
+			productoLoader.fillProductosByCategoria();
+			cache.btnOrdenar.on("click",ordenarProducto); 
+			/*var productosUI = new Producto.UI();
+			productosUI.attachEvents();*/
 	};
 	this.attachEvents = function() {
-		alert("attached");
+		
         cache.linkCategoria.on("click",menuLinks);
 		cache.btnOrdenar.on("click",ordenarProducto); 
     	
