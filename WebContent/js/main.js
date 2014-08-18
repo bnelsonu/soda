@@ -13,6 +13,6 @@ function initializeProductos ()
 	productosLoader.fillMenuCategorias();
 	productosLoader.getProductosByCategoria(1);
 	productosLoader.fillProductosByCategoria();
-	var productosUI = new Producto.UI();
+	var productosUI = new Producto.UI(); 	
 	productosUI.attachEvents();
 };

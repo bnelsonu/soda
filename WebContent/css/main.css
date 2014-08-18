@@ -301,6 +301,17 @@ margin-top: 2px;
 width: 12px;
 }
 
+
+
+
+
+.deleteButton{
+	
+	background: url('/sodaSoftware/img/remove.png');
+}
+
+
+
 .productItemPrice {
 display: inline;
 float: right;

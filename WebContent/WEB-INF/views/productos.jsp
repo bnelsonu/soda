@@ -41,7 +41,7 @@
 						<div id="productContent">
 							<div id="wrapper-product-uber">
 								<div class="wrapper-product-category">
-									<div id="hamburguesas" class="title" style="clear: both;">
+									<div id="categoriaActual" class="title" style="clear: both;">
 										<span></span>
 									</div>
 									<div class="wrapper-product">
