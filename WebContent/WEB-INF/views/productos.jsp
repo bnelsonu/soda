@@ -6,6 +6,7 @@
 <html>
 <head>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://underscorejs.org/underscore.js"></script>
 <script src="/sodaSoftware/js/main.js"> </script>
 <script src="/sodaSoftware/js/producto.js"> </script>
 <script src="/sodaSoftware/js/categoria.js"> </script>
@@ -23,9 +24,15 @@
 			<div class="col-left">
 				<h2 class="navigation_title">Men&uacute;</h2>
 				<div id="menu-admin">
-					<ul class="menu_items">
-						<!-- <li class="categoryLi"><a class="categoryLink" href="#"></a></li> -->
-					</ul>
+				<ul class="menu_items">
+					<script type="text/html" id="categoriaMenu-template">
+						<@  
+							 for(var i = 0; i < categorias.length; i++) {
+						@>
+						<li class="categoryLi"><a class="categoryLink" href="#"><@=categorias[i].getNombreCategoria()@></a></li>
+						<@ }@>
+					</script>
+				</ul>	
 				</div>
 			</div>
 			<div class="col-right">
@@ -35,19 +42,22 @@
 							<div id="wrapper-product-uber">
 								<div class="wrapper-product-category">
 									<div id="hamburguesas" class="title" style="clear: both;">
-										<span>${productosByCategoria[0].categoria.nombreCategoria}</span>
+										<span></span>
 									</div>
 									<div class="wrapper-product">
-									 <c:forEach items="${productosByCategoria}"  var="producto">
+										<script type="text/html" id="productosByCategoria-template">
+										<@  
+										  for(var i = 0; i < productos.length; i++) {
+										@>
 										<div class="itemBox">
 											<div class="information-container">
 												<div class="productName" id="divProducto">
-													<p class="nombreProducto">${producto.nombreProducto} ${producto.descripcionProducto}</p>
+													<p class="nombreProducto"><@=productos[i].getNombreProducto()@></p>
 												</div>
 												<div class="itemPriceCalories">
 													<div style="float:right; text-align: right; width: 100px">
 														<div>
-															<span class="productPrice">${producto.precioProducto}</span>
+															<span class="productPrice"><@=productos[i].getPrecioProducto()@></span>
 														</div>
 													</div>
 												</div>
@@ -56,7 +66,8 @@
 												</div>
 											</div>	
 										</div><!--q se repita  -->
-									 </c:forEach>
+										<@}@>
+										</script>
 									</div>
 								</div>
 							</div>
