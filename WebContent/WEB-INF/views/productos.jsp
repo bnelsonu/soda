@@ -2,6 +2,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,48 +77,49 @@
 				</div>
 				<div id="orderDetailsAndSummary" class="colRightRight">
 					<div class="orderPanel">
-						<div class="orderHead">
-							<h3>
-								<a href="#">Detalle Orden</a>
-							</h3>
-						</div>
-						<div class="orderContent" id="fav_orderDetail" style="display: block;">
-							<div class="order details">
-								<div class="floatl">
-									<p class="orderDetailsBlock">Fecha: &nbsp;</p>
-								</div>
-								<p class="orderDetailsBlock">
-									07/3/2014
-								</p>
-								<div class="floatl">
-									<p class="orderDetailsBlock">Cajero: &nbsp;</p>
-								</div>
-								<p class="orderDetailsBlock">
-									Carlos Hernandez
-								</p>
-								
+					  <form:form modelAttribute="newOrder" class="form-horizontal" action="/main/createOrden">
+							<div class="orderHead">
+								<h3>
+									<a href="#">Detalle Orden</a>
+								</h3>
 							</div>
-						</div>
-						<div class="orderHead">
-							<h3>
-								<a href="#">Resumen Orden</a>
-							</h3>
-						</div>
-						<div class="orderContent" id="fav_orderSummary">
-							<div class="summary details">
-							  <div class="product"></div>	
-								<div class="total details">
-									<div class="item">
-										<strong>Total</strong>
-										<span class="floatr"></span>
+							<div class="orderContent" id="fav_orderDetail" style="display: block;">
+								<div class="order details">
+									<div class="floatl">
+										<p class="orderDetailsBlock">Fecha: &nbsp;</p>
 									</div>
-									<hr>
-									<div id="divFinalizar" style="float:right; padding-top: 20px;">
-										<input type="submit" value="Finalizar" class="btn-2">
+									<p class="orderDetailsBlock" id="fechaOrden"></p>
+									<form:input type="hidden" path="fechaOrden" id="fechaOrdenValue"/>
+									<div class="floatl">
+										<p class="orderDetailsBlock" id="cajero">Cajero: &nbsp;</p>
 									</div>
+									<p class="orderDetailsBlock">
+										Carlos Hernandez
+									</p>
+									
 								</div>
 							</div>
-						</div>
+							<div class="orderHead">
+								<h3>
+									<a href="#">Resumen Orden</a>
+								</h3>
+							</div>
+							<div class="orderContent" id="fav_orderSummary">
+								<div class="summary details">
+								  <div class="product"></div>	
+									<div class="total details">
+										<div class="item">
+											<strong>Total</strong>
+											<span class="floatr"></span>
+										</div>
+										<hr>
+										<div id="divFinalizar" style="float:right; padding-top: 20px;">
+											<input type="submit" value="Finalizar" class="btn-2">
+										</div>
+									</div>
+								</div>
+							</div>
+						</form:form>
 					</div><!--fin orderPanel-->
 				</div>
 			</div>

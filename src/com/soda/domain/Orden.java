@@ -1,6 +1,7 @@
 package com.soda.domain;
 
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -24,6 +25,9 @@ public class Orden {
 	 
 	@Column(name = "fechaOrden")
 	private Date fechaOrden;
+	
+	@Column(name = "totalOrden")
+	private BigDecimal totalOrden;
 	
 	@ManyToMany
 	@JoinTable(name = "orden_producto", joinColumns = { @JoinColumn(name = "idOrden") }, 
@@ -63,5 +67,13 @@ public class Orden {
 
 	public void setCajero(Cajero cajero) {
 		this.cajero = cajero;
+	}
+
+	public BigDecimal getTotalOrden() {
+		return totalOrden;
+	}
+
+	public void setTotalOrden(BigDecimal totalOrden) {
+		this.totalOrden = totalOrden;
 	}
 }

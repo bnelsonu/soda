@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soda.domain.Categoria;
+import com.soda.domain.Orden;
 import com.soda.domain.Producto;
 import com.soda.service.CategoriaService;
 import com.soda.service.ProductoService;
@@ -37,7 +39,7 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/home", method = RequestMethod.GET)
-	public String showProductos ()
+	public String showProductos (@ModelAttribute("newOrder") Orden orden)
 	{
 			
 		return "productos";
@@ -56,5 +58,6 @@ public class MainController {
 		return productoService.getAllProductosByCategoria(idCategoria);
 		
 	}
+	
 
 }
