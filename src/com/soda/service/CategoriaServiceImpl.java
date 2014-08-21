@@ -19,9 +19,4 @@ public class CategoriaServiceImpl implements CategoriaService{
 		
 		return categoriaDAO.getAllCategorias();
 	}
-
-	
-	
-	
-	
 }

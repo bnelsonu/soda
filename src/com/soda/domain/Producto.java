@@ -37,7 +37,8 @@ public class Producto {
 	@JoinColumn(name="idCategoria")
 	@JsonIgnore 
 	private Categoria categoria;
-
+	
+	
 	public int getIdProducto() {
 		return idProducto;
 	}
@@ -85,4 +86,5 @@ public class Producto {
 	public void setSubCategoria(SubCategoria subCategoria) {
 		this.subCategoria = subCategoria;
 	}
+
 }

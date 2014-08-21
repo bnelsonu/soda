@@ -77,7 +77,7 @@
 				</div>
 				<div id="orderDetailsAndSummary" class="colRightRight">
 					<div class="orderPanel">
-					  <form:form modelAttribute="newOrder" class="form-horizontal" action="/main/createOrden">
+					  <form:form modelAttribute="newOrden" class="form-horizontal" action="/main/createOrden">
 							<div class="orderHead">
 								<h3>
 									<a href="#">Detalle Orden</a>
@@ -89,14 +89,13 @@
 										<p class="orderDetailsBlock">Fecha: &nbsp;</p>
 									</div>
 									<p class="orderDetailsBlock" id="fechaOrden"></p>
-									<form:input type="hidden" path="fechaOrden" id="fechaOrdenValue"/>
+									<form:hidden path="fechaOrden" id="fechaOrdenValue"/>
 									<div class="floatl">
 										<p class="orderDetailsBlock" id="cajero">Cajero: &nbsp;</p>
 									</div>
 									<p class="orderDetailsBlock">
 										Carlos Hernandez
 									</p>
-									
 								</div>
 							</div>
 							<div class="orderHead">
@@ -111,6 +110,7 @@
 										<div class="item">
 											<strong>Total</strong>
 											<span class="floatr"></span>
+											<form:hidden path="totalOrden" id="totalOrden"/>
 										</div>
 										<hr>
 										<div id="divFinalizar" style="float:right; padding-top: 20px;">

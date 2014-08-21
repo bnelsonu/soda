@@ -4,7 +4,8 @@
 
 //Global object
 var Producto = Producto || {};
-
+var counter = 0;
+var index = 0;
 Producto.Obj = function(idProductoPar,nombreProductoPar,precioProductoPar,descripcionProductoPar){
 
 	var idProducto = idProductoPar;
@@ -103,7 +104,7 @@ Producto.Loader = function(){
 		cache.totalPriceHtml.html("0");
 		//set fechaActual
 		cache.fechaActual.html(formatedFechaActual);
-		$("#fechaOrdenValue").val(formatedFechaActual);
+		$("#fechaOrdenValue").val(fechaActual);
 		
 	};
 	
@@ -114,6 +115,34 @@ Producto.Loader = function(){
 		$wrapper.append(productosByCategoria);
 	};
 
+};	
+
+
+Producto.UIManager = function (){
+	
+	var cache = {
+			btnBorrar: $(".delete")
+	};
+	
+	var borrarProducto = function (e){
+	
+	 e.preventDefault();
+	 botonDeleteIndex = cache.btnBorrar.index(this);
+	
+	/* $('"#delete'+botonDeleteIndex+'"').remove();
+	 $('"#items-meta'+botonDeleteIndex+'"').remove();*/
+	 
+	 alert($(".delete").get(botonDeleteIndex));
+	 $(".delete").get(botonDeleteIndex).remove();
+
+	};
+	
+	this.attachEvents = function() {
+        cache.btnBorrar.on("click",borrarProducto);
+    };
+};
+
+	
 Producto.UI = function (){
 	
 	var cache = {
@@ -127,7 +156,8 @@ Producto.UI = function (){
 	
 	var ordenarProducto = function(e){
 		   
-			cache.elementsCounter++;
+			counter++;
+			
 			e.preventDefault();
 			
 			botonClickedIndex = $(".product-button").index(this);
@@ -137,24 +167,34 @@ Producto.UI = function (){
 			var currentProductoHtml = $(getCurrentNombreProducto).html();
 			var currentPrecioHtml = $(getCurrentPrecioProducto).html();
 			
-			createSummaryHtml(currentProductoHtml,currentPrecioHtml,cache.elementsCounter);					
+			createSummaryHtml(currentProductoHtml,currentPrecioHtml,counter);
+			var uiManager = new Producto.UIManager(); 	
+			uiManager.attachEvents();
+			
 	};
 	
-	var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto,index)
+	var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto,counter)
 	 { 
-		$('<div class="delete"><img src="/sodaSoftware/img/remove.png" alt="Delete"></div>').appendTo(".product");
-	
-		$('<div class="items-meta" >'+'<span class="productItemName" id="productItemName">'+getCurrentNombreProducto+'</span>'
-				+'<span class="productItemPrice" id="productItemPrice">'+getCurrentPrecioProducto+'</span>'+'</div>').appendTo(".product");
-	
+		index=counter-1;
+		
+		$('<div class="delete" id="delete'+counter+'"'+'><img src="/sodaSoftware/img/remove.png" alt="Delete"></div>').appendTo(".product");
+			
+		$('<div class="items-meta" id="items-meta'+counter+'"'+'><span class="productItemName" id="productItemName">'+getCurrentNombreProducto+'</span>'
+		+'<input type="hidden" id="producto'+counter+'"'+'path="productos'+"["+index+'].nombreProducto'+'"'+'value="'+getCurrentNombreProducto+
+		'"'+'/>'+'<span class="productItemPrice" id="productItemPrice">'+getCurrentPrecioProducto+'</span><input type="hidden" id="price'+counter+'"'+
+		'path="productos['+index+'].precioProducto'+'"'+'value="'+getCurrentPrecioProducto+'"/></div>').appendTo(".product");
+		
 		
 		var totalPrice = parseInt(cache.totalPriceHtml.html()) + parseInt(getCurrentPrecioProducto);
 		$(".floatr").html(totalPrice);
 		
+		
+		$("#totalOrden").val(totalPrice);
+		
 	};
 		
-	var menuLinks = function (e){
-		
+	var menuLinks = function (e)
+	{
 		    e.preventDefault();
 		    linkIndex = cache.linkCategoria.index(this)+1;
 		    
@@ -162,23 +202,13 @@ Producto.UI = function (){
 			$(".itemBox").remove();
 			productoLoader.getProductosByCategoria(linkIndex);
 			productoLoader.fillProductosByCategoria();
+			var productosUI = new Producto.UI(); 	
+			productosUI.attachEvents();
 		
 	};
 	
-	/*var borrarProducto = function (e){
-	
-			 e.preventDefault();
-			 botonDeleteIndex = cache.btnBorrar.index(this);
-			alert(botonDeleteIndex);
-			 $(".delete").get(botonDeleteIndex).remove();
-			 $(".items-meta").get(botonDeleteIndex).remove();
-		 
-	};*/
-	
-	
 	this.attachEvents = function() {
         cache.linkCategoria.on("click",menuLinks);
-		cache.btnOrdenar.on("click",ordenarProducto); 
+		cache.btnOrdenar.on("click",ordenarProducto); 	
 	};
-};
 };

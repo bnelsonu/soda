@@ -15,6 +15,7 @@ import com.soda.domain.Categoria;
 import com.soda.domain.Orden;
 import com.soda.domain.Producto;
 import com.soda.service.CategoriaService;
+import com.soda.service.OrdenService;
 import com.soda.service.ProductoService;
 
 @Controller
@@ -26,21 +27,13 @@ public class MainController {
 	@Autowired
 	private CategoriaService categoriaService;
 	
-	@RequestMapping(value="/allProductos2/{idCategoria}", method = RequestMethod.GET)
-	public String getAllProductosByIdCategoriaTest (Model model, @PathVariable("idCategoria")
-	int idCategoria)
-	{
-		
-		model.addAttribute("categorias",categoriaService.getAllCategorias());
-		model.addAttribute("productosByCategoria",productoService.getAllProductosByCategoria(idCategoria));
-		
-		return "oldProductos";
-	}
-	
-	
+	@Autowired
+	private OrdenService ordenService;
+
 	@RequestMapping(value="/home", method = RequestMethod.GET)
-	public String showProductos (@ModelAttribute("newOrder") Orden orden)
+	public String showProductos (Model model)
 	{
+	    model.addAttribute("newOrden",new Orden());
 			
 		return "productos";
 	}
@@ -56,8 +49,15 @@ public class MainController {
 	int idCategoria)
 	{
 		return productoService.getAllProductosByCategoria(idCategoria);
+	}
+	
+	@RequestMapping(value="/createOrden", method=RequestMethod.POST)
+	public String createOrden (@ModelAttribute("newOrden") Orden newOrden){
+		
+		ordenService.salvarOrden(newOrden);
+		
+		return "redirect:/main/home";
 		
 	}
 	
-
 }
