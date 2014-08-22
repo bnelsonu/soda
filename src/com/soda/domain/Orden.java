@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,12 +30,12 @@ public class Orden {
 	@Column(name = "totalOrden")
 	private BigDecimal totalOrden;
 	
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.PERSIST)
 	@JoinTable(name = "orden_producto", joinColumns = { @JoinColumn(name = "idOrden") }, 
 	inverseJoinColumns = { @JoinColumn(name = "idProducto") })
 	private Collection <Producto> productos = new ArrayList <Producto> ();
 	
-	@ManyToOne
+	@ManyToOne 
 	@JoinColumn(name="idCajero")
 	private Cajero cajero;
 

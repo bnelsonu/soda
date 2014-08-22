@@ -105,8 +105,10 @@
 							</div>
 							<div class="orderContent" id="fav_orderSummary">
 								<div class="summary details">
-								  <div class="product"></div>	
-									<div class="total details">
+								  <div class="product">
+								  	<!-- aqui va la orden -->
+								  </div>
+								  <div class="total details">
 										<div class="item">
 											<strong>Total</strong>
 											<span class="floatr"></span>

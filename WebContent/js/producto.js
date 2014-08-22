@@ -118,7 +118,7 @@ Producto.Loader = function(){
 };	
 
 
-Producto.UIManager = function (){
+/*Producto.UIManager = function (){
 	
 	var cache = {
 			btnBorrar: $(".delete")
@@ -130,7 +130,7 @@ Producto.UIManager = function (){
 	 botonDeleteIndex = cache.btnBorrar.index(this);
 	
 	/* $('"#delete'+botonDeleteIndex+'"').remove();
-	 $('"#items-meta'+botonDeleteIndex+'"').remove();*/
+	 $('"#items-meta'+botonDeleteIndex+'"').remove();
 	 
 	 alert($(".delete").get(botonDeleteIndex));
 	 $(".delete").get(botonDeleteIndex).remove();
@@ -140,7 +140,7 @@ Producto.UIManager = function (){
 	this.attachEvents = function() {
         cache.btnBorrar.on("click",borrarProducto);
     };
-};
+};*/
 
 	
 Producto.UI = function (){
@@ -202,8 +202,8 @@ Producto.UI = function (){
 			$(".itemBox").remove();
 			productoLoader.getProductosByCategoria(linkIndex);
 			productoLoader.fillProductosByCategoria();
-			var productosUI = new Producto.UI(); 	
-			productosUI.attachEvents();
+		   /* var productosUI = new Producto.UI(); 	
+			productosUI.attachEvents();*/
 		
 	};
 	
