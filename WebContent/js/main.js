@@ -9,7 +9,6 @@ $(function() {
 function initializeProductos ()
 {
 	var	index = $('itemBox').length;
-	alert(index);
 	if(index === 0)
 	{
 		var productosLoader = new Producto.Loader();
@@ -18,7 +17,10 @@ function initializeProductos ()
 		productosLoader.getProductosByCategoria(1);
 		productosLoader.fillProductosByCategoria();
 	    var productosUI = new Producto.UI(); 	
-		productosUI.attachEvents();
+		productosUI.attachLinkCategoriaEvent();
+		var productosUIManager = new Producto.UIManager();
+		productosUIManager.attachEventBorrar();
+		productosUIManager.attachEventOrdenar();
 	}	
 
 };

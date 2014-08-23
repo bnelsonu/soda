@@ -6,6 +6,8 @@
 var Producto = Producto || {};
 var counter = 0;
 var index = 0;
+var categorias = [];
+var productos = [];
 Producto.Obj = function(idProductoPar,nombreProductoPar,precioProductoPar,descripcionProductoPar){
 
 	var idProducto = idProductoPar;
@@ -35,8 +37,6 @@ Producto.Loader = function(){
 	
 	
 	categoriesLink = "/sodaSoftware/main/categorias";
-	var categorias = [];
-	var productos = [];
 	productoByCategoriaLink = "/sodaSoftware/main/allProductos/";
 	
 	var cache = {
@@ -118,80 +118,91 @@ Producto.Loader = function(){
 };	
 
 
-/*Producto.UIManager = function (){
+Producto.UIManager = function (){
 	
 	var cache = {
+			totalPriceHtml : $(".floatr"),
+			btnOrdenar:$(".product-button"),
 			btnBorrar: $(".delete")
 	};
 	
 	var borrarProducto = function (e){
 	
 	 e.preventDefault();
-	 botonDeleteIndex = cache.btnBorrar.index(this);
+	 botonDeleteIndex = cache.btnBorrar.index(this)+1;
 	
-	/* $('"#delete'+botonDeleteIndex+'"').remove();
-	 $('"#items-meta'+botonDeleteIndex+'"').remove();
-	 
-	 alert($(".delete").get(botonDeleteIndex));
-	 $(".delete").get(botonDeleteIndex).remove();
+	 $('#delete'+botonDeleteIndex).remove();
+	 $('#items-meta'+botonDeleteIndex).remove();
 
 	};
 	
-	this.attachEvents = function() {
-        cache.btnBorrar.on("click",borrarProducto);
+	var ordenarProducto = function(e){
+		   
+		counter++;
+		
+		e.preventDefault();
+		
+		botonClickedIndex = $(".product-button").index(this);
+		getCurrentNombreProducto = $(".nombreProducto").get(botonClickedIndex);
+		getCurrentPrecioProducto = $(".productPrice").get(botonClickedIndex);
+		
+		var currentProductoHtml = $(getCurrentNombreProducto).html();
+		var currentPrecioHtml = $(getCurrentPrecioProducto).html();
+		
+		createSummaryHtml(currentProductoHtml,currentPrecioHtml,counter);
+		var uiManager = new Producto.UIManager(); 	
+		uiManager.attachEventBorrar();
+		
+};
+
+var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto,counter)
+{ 
+	index=counter-1;
+	
+	$('<div class="delete" id="delete'+counter+'"'+'><img src="/sodaSoftware/img/remove.png" alt="Delete"></div>').appendTo(".product");
+	$('<div class="items-meta" id="items-meta'+counter+'"'+'><span class="productItemName" id="productItemName">'+getCurrentNombreProducto+'</span>'
+	+'<input type="hidden" name="productos'+"["+index+'].idProducto'+'"'+'value="'+getIdProducto(getCurrentNombreProducto)+
+	'"'+'/>'+'<span class="productItemPrice" id="productItemPrice">'+getCurrentPrecioProducto+'</span></div>').appendTo(".product");
+	
+	
+	var totalPrice = parseInt(cache.totalPriceHtml.html()) + parseInt(getCurrentPrecioProducto);
+	$(".floatr").html(totalPrice);
+	
+	
+	$("#totalOrden").val(totalPrice);
+	
+};
+var getIdProducto = function (nombreProducto){
+	
+	var idProducto = 0;
+		
+	for( var i=0; i<productos.length;i++){
+		if (productos[i].getNombreProducto() === nombreProducto){
+			 idProducto = productos[i].getIdProducto();
+			break;
+		}
+	}	
+	
+	return idProducto;
+};
+	
+	this.attachEventOrdenar = function() {
+        
+        cache.btnOrdenar.on("click",ordenarProducto);
     };
-};*/
+    this.attachEventBorrar = function() {
+        cache.btnBorrar.on("click",borrarProducto);//antes solo este
+    };
+};
 
 	
 Producto.UI = function (){
 	
 	var cache = {
-			btnOrdenar:$(".product-button"),
-			linkCategoria:$(".categoryLink"),
-			btnBorrar: $(".delete"),
-			totalPriceHtml : $(".floatr"),
-			elementsCounter : 0
+			
+			linkCategoria:$(".categoryLink")
 	};
 	
-	
-	var ordenarProducto = function(e){
-		   
-			counter++;
-			
-			e.preventDefault();
-			
-			botonClickedIndex = $(".product-button").index(this);
-			getCurrentNombreProducto = $(".nombreProducto").get(botonClickedIndex);
-			getCurrentPrecioProducto = $(".productPrice").get(botonClickedIndex);
-			
-			var currentProductoHtml = $(getCurrentNombreProducto).html();
-			var currentPrecioHtml = $(getCurrentPrecioProducto).html();
-			
-			createSummaryHtml(currentProductoHtml,currentPrecioHtml,counter);
-			var uiManager = new Producto.UIManager(); 	
-			uiManager.attachEvents();
-			
-	};
-	
-	var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto,counter)
-	 { 
-		index=counter-1;
-		
-		$('<div class="delete" id="delete'+counter+'"'+'><img src="/sodaSoftware/img/remove.png" alt="Delete"></div>').appendTo(".product");
-			
-		$('<div class="items-meta" id="items-meta'+counter+'"'+'><span class="productItemName" id="productItemName">'+getCurrentNombreProducto+'</span>'
-		+'<input type="hidden" id="producto'+counter+'"'+'path="productos'+"["+index+'].nombreProducto'+'"'+'value="'+getCurrentNombreProducto+
-		'"'+'/>'+'<span class="productItemPrice" id="productItemPrice">'+getCurrentPrecioProducto+'</span><input type="hidden" id="price'+counter+'"'+
-		'path="productos['+index+'].precioProducto'+'"'+'value="'+getCurrentPrecioProducto+'"/></div>').appendTo(".product");
-		
-		
-		var totalPrice = parseInt(cache.totalPriceHtml.html()) + parseInt(getCurrentPrecioProducto);
-		$(".floatr").html(totalPrice);
-		
-		
-		$("#totalOrden").val(totalPrice);
-		
-	};
 		
 	var menuLinks = function (e)
 	{
@@ -202,13 +213,13 @@ Producto.UI = function (){
 			$(".itemBox").remove();
 			productoLoader.getProductosByCategoria(linkIndex);
 			productoLoader.fillProductosByCategoria();
-		   /* var productosUI = new Producto.UI(); 	
-			productosUI.attachEvents();*/
+			var productosUIManager = new Producto.UIManager();
+			productosUIManager.attachEventOrdenar();
 		
 	};
 	
-	this.attachEvents = function() {
-        cache.linkCategoria.on("click",menuLinks);
-		cache.btnOrdenar.on("click",ordenarProducto); 	
+	this.attachLinkCategoriaEvent = function() {
+       cache.linkCategoria.on("click",menuLinks);
+			
 	};
 };
