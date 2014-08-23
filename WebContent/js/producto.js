@@ -123,7 +123,8 @@ Producto.UIManager = function (){
 	var cache = {
 			totalPriceHtml : $(".floatr"),
 			btnOrdenar:$(".product-button"),
-			btnBorrar: $(".delete")
+			btnBorrar: $(".delete"),
+			btnFinalizar:$(".btn-2")
 	};
 	
 	var borrarProducto = function (e){
@@ -185,13 +186,23 @@ var getIdProducto = function (nombreProducto){
 	
 	return idProducto;
 };
+
+
+var finalizarOrden= function(){
+	
+	alert("la Orden se realizó correctamente"); 
+};
 	
 	this.attachEventOrdenar = function() {
         
         cache.btnOrdenar.on("click",ordenarProducto);
     };
     this.attachEventBorrar = function() {
-        cache.btnBorrar.on("click",borrarProducto);//antes solo este
+        cache.btnBorrar.on("click",borrarProducto);
+    };
+    
+    this.attachEventFinalizar = function() {
+        cache.btnFinalizar.on("click",finalizarOrden);
     };
 };
 

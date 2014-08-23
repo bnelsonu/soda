@@ -21,6 +21,7 @@ function initializeProductos ()
 		var productosUIManager = new Producto.UIManager();
 		productosUIManager.attachEventBorrar();
 		productosUIManager.attachEventOrdenar();
+		productosUIManager.attachEventFinalizar();
 	}	
 
 };
