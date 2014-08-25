@@ -7,7 +7,7 @@ var Producto = Producto || {};
 var counter = 0;
 var index = 0;
 var categorias = [];
-var productos = [];
+
 Producto.Obj = function(idProductoPar,nombreProductoPar,precioProductoPar,descripcionProductoPar){
 
 	var idProducto = idProductoPar;
@@ -34,7 +34,7 @@ Producto.Obj = function(idProductoPar,nombreProductoPar,precioProductoPar,descri
 };
 
 Producto.Loader = function(){
-	
+	var productos = [];
 	
 	categoriesLink = "/sodaSoftware/main/categorias";
 	productoByCategoriaLink = "/sodaSoftware/main/allProductos/";
@@ -122,7 +122,7 @@ Producto.UIManager = function (){
 	
 	var cache = {
 			totalPriceHtml : $(".floatr"),
-			btnOrdenar:$(".product-button"),
+			btnOrdenar:$(".wrapper-product"),
 			btnBorrar: $(".delete"),
 			btnFinalizar:$(".btn-2")
 	};
@@ -146,23 +146,26 @@ Producto.UIManager = function (){
 		botonClickedIndex = $(".product-button").index(this);
 		getCurrentNombreProducto = $(".nombreProducto").get(botonClickedIndex);
 		getCurrentPrecioProducto = $(".productPrice").get(botonClickedIndex);
+		getCurrentIdProducto = $(".idProducto").get(botonClickedIndex);
 		
 		var currentProductoHtml = $(getCurrentNombreProducto).html();
 		var currentPrecioHtml = $(getCurrentPrecioProducto).html();
+		var currentIdProducto = $(getCurrentIdProducto).val();
 		
-		createSummaryHtml(currentProductoHtml,currentPrecioHtml,counter);
+			
+		createSummaryHtml(currentProductoHtml,currentPrecioHtml,currentIdProducto,counter);
 		var uiManager = new Producto.UIManager(); 	
 		uiManager.attachEventBorrar();
 		
 };
 
-var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto,counter)
+var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProducto,getCurrentIdProducto,counter)
 { 
 	index=counter-1;
 	
 	$('<div class="delete" id="delete'+counter+'"'+'><img src="/sodaSoftware/img/remove.png" alt="Delete"></div>').appendTo(".product");
 	$('<div class="items-meta" id="items-meta'+counter+'"'+'><span class="productItemName" id="productItemName">'+getCurrentNombreProducto+'</span>'
-	+'<input type="hidden" name="productos'+"["+index+'].idProducto'+'"'+'value="'+getIdProducto(getCurrentNombreProducto)+
+	+'<input type="hidden" name="productos'+"["+index+'].idProducto'+'"'+'value="'+getCurrentIdProducto+
 	'"'+'/>'+'<span class="productItemPrice" id="productItemPrice">'+getCurrentPrecioProducto+'</span></div>').appendTo(".product");
 	
 	
@@ -173,20 +176,6 @@ var createSummaryHtml = function(getCurrentNombreProducto,getCurrentPrecioProduc
 	$("#totalOrden").val(totalPrice);
 	
 };
-var getIdProducto = function (nombreProducto){
-	
-	var idProducto = 0;
-		
-	for( var i=0; i<productos.length;i++){
-		if (productos[i].getNombreProducto() === nombreProducto){
-			 idProducto = productos[i].getIdProducto();
-			break;
-		}
-	}	
-	
-	return idProducto;
-};
-
 
 var finalizarOrden= function(){
 	
@@ -195,7 +184,7 @@ var finalizarOrden= function(){
 	
 	this.attachEventOrdenar = function() {
         
-        cache.btnOrdenar.on("click",ordenarProducto);
+        cache.btnOrdenar.on("click",".product-button",ordenarProducto);
     };
     this.attachEventBorrar = function() {
         cache.btnBorrar.on("click",borrarProducto);
@@ -219,13 +208,10 @@ Producto.UI = function (){
 	{
 		    e.preventDefault();
 		    linkIndex = cache.linkCategoria.index(this)+1;
-		    
 			productoLoader = new Producto.Loader();
 			$(".itemBox").remove();
 			productoLoader.getProductosByCategoria(linkIndex);
 			productoLoader.fillProductosByCategoria();
-			var productosUIManager = new Producto.UIManager();
-			productosUIManager.attachEventOrdenar();
 		
 	};
 	

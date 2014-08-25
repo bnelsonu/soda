@@ -17,6 +17,6 @@ public class SodaDomainTest {
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
-		
+	
 	}
 }

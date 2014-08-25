@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://underscorejs.org/underscore.js"></script>
+<script src="/sodaSoftware/js/jquery-1.11.1.min.js"></script>
+<script src="/sodaSoftware/js/underscore.js"></script>
 <script src="/sodaSoftware/js/main.js"> </script>
 <script src="/sodaSoftware/js/producto.js"> </script>
 <script src="/sodaSoftware/js/categoria.js"> </script>
@@ -54,6 +54,7 @@
 											<div class="information-container">
 												<div class="productName" id="divProducto">
 													<p class="nombreProducto"><@=productos[i].getNombreProducto()@></p>
+													<input class="idProducto" type="hidden" value="<@=productos[i].getIdProducto()@>"/>
 												</div>
 												<div class="itemPriceCalories">
 													<div style="float:right; text-align: right; width: 100px">
