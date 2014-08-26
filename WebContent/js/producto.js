@@ -240,7 +240,6 @@ Producto.UI = function ()
 	
 	var cache = 
 	{
-			
 			linkCategoria:$(".categoryLink")
 	};
 		
