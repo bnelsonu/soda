@@ -19,8 +19,8 @@ function initializeProductos ()
 	    var productosUI = new Producto.UI(); 	
 		productosUI.attachLinkCategoriaEvent();
 		var productosUIManager = new Producto.UIManager();
-		productosUIManager.attachEventBorrar();
 		productosUIManager.attachEventOrdenar();
+		productosUIManager.attachEventBorrar();
 		productosUIManager.attachEventFinalizar();
 	}	
 

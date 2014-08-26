@@ -92,6 +92,10 @@
 									<p class="orderDetailsBlock" id="fechaOrden"></p>
 									<form:hidden path="fechaOrden" id="fechaOrdenValue"/>
 									<div class="floatl">
+										<p class="orderDetailsBlock">Hora: &nbsp;</p>
+									</div>
+									<p class="orderDetailsBlock" id="horaOrden"></p>
+									<div class="floatl">
 										<p class="orderDetailsBlock" id="cajero">Cajero: &nbsp;</p>
 									</div>
 									<p class="orderDetailsBlock">
