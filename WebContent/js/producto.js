@@ -94,11 +94,29 @@ Producto.Loader = function(){
 		return categorias;
 	};
 	
+	
+	var twoDigitMinutes = function  (minutes)
+	
+	{
+	    
+	    if (minutes < 10)
+	    {
+	        return ("0" + minutes.toString());
+	    }
+	    else
+	    {
+	        return minutes.toString();
+	    }
+	};
+
+	
+	
+	
 	this.fillMenuCategorias = function (){
 		
 		var fechaActual = new Date();
 		formatedFechaActual =  fechaActual.getDate()+"/"+(fechaActual.getMonth()+1)+"/"+fechaActual.getFullYear();
-		horaActual = fechaActual.getHours()+":"+ fechaActual.getMinutes();
+		horaActual = fechaActual.getHours()+":"+ twoDigitMinutes(fechaActual.getMinutes());
 		
 		$menu = $(".menu_items");
 		var menuCategorias = _.template($('#categoriaMenu-template').html(),{'categorias': categorias});
