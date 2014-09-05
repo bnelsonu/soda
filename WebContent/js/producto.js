@@ -235,6 +235,7 @@ Producto.UIManager = function ()
 	var finalizarOrden= function()
 	{
 		alert("la Orden se realizó correctamente"); 
+		window.print();
 	};
 	
 	this.attachEventOrdenar = function() 

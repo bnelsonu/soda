@@ -11,7 +11,8 @@
 <script src="/sodaSoftware/js/main.js"> </script>
 <script src="/sodaSoftware/js/producto.js"> </script>
 <script src="/sodaSoftware/js/categoria.js"> </script>
-<link rel="stylesheet" type="text/css" href="/sodaSoftware/css/main.css">
+<link rel="stylesheet" type="text/css" href="/sodaSoftware/css/main.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/sodaSoftware/css/print.css" media="print">
 <meta charset="ISO-8859-1">
 <title>Marmota's Place</title>
 </head>
